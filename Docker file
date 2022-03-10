@@ -1,0 +1,13 @@
+FROM Ubuntu latest
+
+WORKDIR /usr/src/app
+
+RUN Sudo apt-get update
+    sudo apt-get install apache2 -y
+
+COPY /var/lib/jenkins/workspace/package_1/target/addressbook.war ./
+    
+EXPOSE 80
+
+CMD ["apachectl" "D", "Foreground"]
+
